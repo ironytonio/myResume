@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  checkBoxes()
   window.addEventListener("scroll", checkBoxes);
 
   const pages = document.querySelectorAll(".intWork");
