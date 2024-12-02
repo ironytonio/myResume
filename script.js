@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const label = document.getElementById("frDevelop"); // Убран символ "." перед "frDevelop"
+  const label = document.getElementById("frDevelop");
   const text = label.innerText;
 
   label.innerHTML = text
@@ -24,20 +24,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const skills = document.querySelectorAll(".skill");
 
-  window.addEventListener("scroll", checkBoxes);
-
   function checkBoxes() {
-    const trigger = (window.innerHeight / 5) * 4;
-
-    skills.forEach((skill) => {
-      const top = skill.getBoundingClientRect().top;
-      if (top < trigger) {
+    const skills = document.querySelectorAll(".skill");
+    if (window.innerWidth <= 1024) {
+      skills.forEach((skill) => {
         skill.classList.add("show");
-      } else {
-        skill.classList.remove("show");
-      }
-    });
+      });
+    } else if (window.innerWidth >= 1024) {
+      const trigger = (window.innerHeight / 5) * 4;
+
+      skills.forEach((skill) => {
+        const top = skill.getBoundingClientRect().top;
+        if (top < trigger) {
+          skill.classList.add("show");
+        } else {
+          skill.classList.remove("show");
+        }
+      });
+    }
   }
+
+  window.addEventListener("scroll", checkBoxes);
 
   const pages = document.querySelectorAll(".intWork");
   const right = document.getElementById("right");
